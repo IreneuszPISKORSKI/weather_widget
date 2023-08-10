@@ -118,18 +118,29 @@ class My_Custom_Widget extends WP_Widget {
 
         // Display the widget
         ?>
-        <div class="cnalps-weather-widget">
+        <div id="cnalps-weather-widget">
             <div class="weather-title">Météo à <? echo $select_city . ' - ' . $select_country ?></div>
-        </div>
-        <div>
             <?
             echo "$temperature °C - $description";
             echo "<img src='$icon_url' alt='Weather Icon'>";
             ?>
         </div>
+
+        <label for="city">Choose city:</label>
+        <select name="city" id="city">
+            <option value="">--- Choose a city ---</option>
+            <optgroup label="France">
+                <option value="grenoble">Grenoble</option>
+                <option value="crest">Crest</option>
+            </optgroup>
+            <optgroup label="Poland">
+                <option value="opole">Opole</option>
+            </optgroup>
+        </select>
         <?php
 
         // WordPress core after_widget hook (always include )
+        echo '<script src="/wp-content/plugins/widget-plugin/widget_weather.js"></script>';
         echo $after_widget;
 
     }
