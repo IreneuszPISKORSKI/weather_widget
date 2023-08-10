@@ -138,6 +138,6 @@ class My_Custom_Widget extends WP_Widget {
 
 // Register the widget
 function my_register_custom_widget() {
-    register_widget( 'My_Weather_Widget' );
+    register_widget( 'My_Custom_Widget' );
 }
-add_action( 'widgets_init', 'my_register_weather_widget' );
+add_action( 'widgets_init', 'my_register_custom_widget' );
