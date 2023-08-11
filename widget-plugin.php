@@ -118,6 +118,9 @@ class My_Custom_Widget extends WP_Widget {
 
         // Display the widget
         ?>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+              integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+              crossorigin=""/>
         <div id="cnalps-weather-widget">
             <div class="weather-title">Météo à <? echo $select_city . ' - ' . $select_country ?></div>
             <?
@@ -137,9 +140,13 @@ class My_Custom_Widget extends WP_Widget {
                 <option value="opole">Opole</option>
             </optgroup>
         </select>
+        <div id="map" style="height: 180px"></div>
         <?php
 
         // WordPress core after_widget hook (always include )
+        echo ' <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>';
         echo '<script src="/wp-content/plugins/widget-plugin/widget_weather.js"></script>';
         echo $after_widget;
 
