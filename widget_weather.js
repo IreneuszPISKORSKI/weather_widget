@@ -38,8 +38,9 @@ selectElement.addEventListener("change", (event)=>{
         default:
 
     }
-
-    document.getElementById("map").innerHTML = "";
+    if (map) {
+        map.remove();
+    }
     map = L.map('map').setView([long, lat], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
